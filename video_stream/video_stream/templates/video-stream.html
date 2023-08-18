@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Video</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <h1>Real-Time Video Stream</h1>
+    <p>This is Paragraph</p>
+    <img id="video-frame" src="" alt="Video Stream" />
+
+    <script>
+      function updateFrame() {
+          $('#video-frame').attr('src', '{% url 'video_stream' %}' + '?' + Date.now());
+          setTimeout(updateFrame, 5000);  // Refresh every 100 milliseconds
+      }
+      updateFrame();
+    </script>
+  </body>
+</html>
